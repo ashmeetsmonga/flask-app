@@ -22,13 +22,13 @@ def hello_world():
     todo = Todo(title='First Todo', desc='This is first todo')
     db.session.add(todo)
     db.session.commit()
-    return render_template('index.html')
+    allTodos = Todo.query.all()
+    return render_template('index.html', allTodos=allTodos)
 
 @app.route('/show')
 def todos():
     allTodos = Todo.query.all()
-    print(allTodos)
-    return 'Products Page'
+    return render_template('index.html', allTodos)
 
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)

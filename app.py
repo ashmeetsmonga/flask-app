@@ -7,5 +7,9 @@ PORT = 5000
 def hello_world():
     return render_template('index.html')
 
+@app.route('/products')
+def products():
+    return 'Products Page'
+
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)

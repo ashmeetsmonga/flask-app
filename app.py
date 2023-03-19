@@ -24,8 +24,10 @@ def hello_world():
     db.session.commit()
     return render_template('index.html')
 
-@app.route('/products')
-def products():
+@app.route('/show')
+def todos():
+    allTodos = Todo.query.all()
+    print(allTodos)
     return 'Products Page'
 
 if __name__ == '__main__':

@@ -19,6 +19,9 @@ PORT = 5000
 
 @app.route('/')
 def hello_world():
+    todo = Todo(title='First Todo', desc='This is first todo')
+    db.session.add(todo)
+    db.session.commit()
     return render_template('index.html')
 
 @app.route('/products')

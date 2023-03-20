@@ -111,7 +111,10 @@
 						<td>{{todo.title}}</td>
 						<td>{{todo.desc}}</td>
 						<td>{{todo.date_created}}</td>
-						<td><a href="/delete/{{todo.sno}}" type="button" class="btn btn-danger">Delete</a></td>
+						<td>
+							<a href="/delete/{{todo.sno}}" type="button" class="btn btn-warning mx-2">Edit</a>
+							<a href="/delete/{{todo.sno}}" type="button" class="btn btn-danger">Delete</a>
+						</td>
 					</tr>
 					{% endfor %}
 				</tbody>

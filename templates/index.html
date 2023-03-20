@@ -95,7 +95,7 @@
 		<div class="container my-4">
 			<h2>My Todos</h2>
 			{% if allTodos|length == 0 %}
-			<h4>No records</h4>
+			<div class="alert alert-primary" role="alert">No todos found. Add your first todo now!</div>
 			{% else %}
 			<table class="table">
 				<thead>

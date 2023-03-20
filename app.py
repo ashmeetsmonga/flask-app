@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 app = Flask(__name__)
@@ -28,10 +28,12 @@ def hello_world():
     allTodos = Todo.query.all()
     return render_template('index.html', allTodos=allTodos)
 
-@app.route('/show')
-def todos():
-    allTodos = Todo.query.all()
-    return render_template('index.html', allTodos)
+@app.route('/delete/<int:sno>')
+def delete_todo(sno):
+    todo = Todo.query.filter_by(sno=sno).first()
+    db.session.delete(todo)
+    db.session.commit()
+    return redirect('/')
 
 if __name__ == '__main__':
     app.run(debug=True, port=PORT)
